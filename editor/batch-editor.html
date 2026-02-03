@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="TOMOKO NIWA"> 
+    <title>記事制作ポータル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="batch-editor">
+
+<header>
+    <nav class="page-nav">
+    <a href="index.html" class="nav-item">🏠 TOP</a>
+    <a href="batch-editor.html" class="nav-item">✍️ エディター</a>
+    <a href="batch-image.html" class="nav-item">📸 画像タグ生成</a>
+    </nav>
+    <h1>✍️ エディター</h1>
+</header>
+
+<div class="main-content">
+    <div class="input-side">
+        <div class="section-box">
+            <div class="section-title"><span>リード文</span> P + Strong タグ</div>
+            <input type="text" id="leadText" oninput="update()" placeholder="リード文を入力してください">
+        </div>
+
+        <div class="section-box">
+            <div class="section-title"><span>見出し 4</span> H4 (Primary)</div>
+            <input type="text" id="h4Text" oninput="update()" placeholder="H4見出しを入力">
+        </div>
+
+        <div class="section-box">
+            <div class="section-title"><span>本文</span> Paragraphs (字下げ自動変換)</div>
+            <textarea id="bodyText" oninput="update()" placeholder="本文を貼り付けてください。行頭の全角スペースは&emsp;に変換されます。"></textarea>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title"><span>見出し 3</span> H3 (Primary)</div>
+            <input type="text" id="h3Text" oninput="update()" placeholder="H3見出しを入力">
+        </div>
+    </div>
+
+    <div class="result-side">
+        <div class="result-header">
+            <span>Sitecore用HTMLコード</span>
+        </div>
+        <div id="outputCode" class="result-area"></div>
+        <button class="btn-copy" onclick="copyResult()">すべてのコードをコピー</button>
+    </div>
+</div>
+<script src="js/portal-tools.js" charset="UTF-8"></script>
+</body>
+</html>

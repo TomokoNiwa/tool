@@ -1,0 +1,386 @@
+﻿@charset "utf-8";
+
+/* --- 1. カラー変数 --- */
+:root {
+    --color_main: #f4f7f9;
+    --color_white: #fff;
+    --color_green: #34a853;
+    --color_blue: #1a73e8;
+    --color_red: #ea4335;
+    --color_yellow: #fbbc05;
+    --color_orange: #e67e22;
+    --color_gray: #888;
+    --color_lightPink: #fef1f1;
+    --color_lightBlue: #e8f0fe;
+    --color_lightGreen: #f8fff9;
+    --color_lightGray: #ccc;
+    --color_darkGray: #333;
+    --color_darkBlue: #607d8b;
+    --color_mediumGray: #666;
+    --color_whiteGray: #eee;
+    --color_paleGray: #fafafa;
+}
+
+/* --- 2. 基本リセット --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: var(--color_main);
+    color: var(--color_darkGray);
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+/* --- 3. TOPページ --- */
+.portal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.portal-card {
+    background: var(--color_white);
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    border-top: 6px solid var(--color_blue);
+    display: block;
+    color: inherit;
+}
+
+.portal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.portal-card h2 {
+    margin-bottom: 15px;
+    color: var(--color_blue);
+    font-size: 1.5em;
+}
+
+.portal-card.card-task {
+    border-top-color: var(--color_green);
+}
+
+.portal-card.card-task h2 {
+    color: var(--color_green);
+}
+
+.portal-card p {
+    font-size: 0.9em;
+    color: var(--color_mediumGray);
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#index .portal-card .btn-main {
+    width: auto;
+    min-width: 120px;
+    height: auto;
+    padding: 10px 20px;
+    display: inline-block;
+    border: none;
+    color: var(--color_white);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#index .portal-card .btn-main { background-color: var(--color_blue); }
+#index .portal-card.card-task .btn-main { background-color: var(--color_green); }
+
+@media (max-width: 768px) {
+    .portal-grid { grid-template-columns: 1fr; }
+}
+#index h1 { 
+    color: var(--color_darkGray);
+    font-size: 2em; 
+    margin: 0; 
+}
+h1 { 
+    color: var(--color_darkGray);
+    font-size: 1.8em; 
+    margin: 0 0 30px; 
+}
+/* --- 4. ナビゲーション --- */
+.page-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color_mediumGray);
+    background: var(--color_whiteGray);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+#task .nav-item[href="task.html"] {
+    background: var(--color_green);
+    color: var(--color_white);
+}
+
+#schedule .nav-item[href="schedule.html"] {
+    background: var(--color_blue);
+    color: var(--color_white);
+}
+
+/* --- 5. 入力エリア共通 --- */
+.setup-area {
+    background: var(--color_white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.85em;
+    color: var(--color_mediumGray);
+}
+input, select, .setup-area button, .btn-add {
+    padding: 10px;
+    border: 1px solid var(--color_lightGray);
+    border-radius: 6px;
+    font-size: 1rem;
+    height: 46px; 
+}
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--color_whiteGray);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-add {
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: var(--color_white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    background: var(--color_blue); 
+}
+
+#task .btn-add {
+    background: var(--color_green) !important;
+}
+#schedule .btn-add {
+    background: var(--color_blue) !important; 
+}
+@media (min-width: 1024px) {
+    .input-row {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .input-row input, 
+    .input-row select {
+        flex: 1;
+        height: 46px;
+    }
+    .input-row .btn-add {
+        margin-top: 0;
+        flex: 0.6;
+        height: 46px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .input-grid {
+        display: grid;
+        grid-template-columns: 2fr 1.8fr 1fr;
+        gap: 15px;
+    }
+    .input-grid-sub {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+    }
+}
+/* --- 6. タスクカード --- */
+.task-card {
+    background: var(--color_white);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid var(--color_lightGray);
+}
+
+.task-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color_whiteGray);
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .task-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.task-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: var(--color_blue);
+}
+
+.btn-wrap {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-wrap button {
+    min-width: 85px;
+    padding: 0 15px;
+    height: 38px;
+    border: none;
+    cursor: pointer;
+    color: var(--color_white);
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.btn-edit { background: var(--color_lightGray); color: var(--color_darkGray) !important; }
+.btn-manual { background: var(--color_orange); }
+.btn-delete { background: var(--color_red); }
+
+/* 集計パーツ */
+.task-summary {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.summary-item {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.sum-work { background: var(--color_lightBlue); color: var(--color_blue); }
+.sum-mtg { background: var(--color_lightPink); color: var(--color_red); }
+.sum-total { background: var(--color_darkGray); color: var(--color_white); }
+
+.log-list {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: var(--color_paleGray);
+    font-size: 0.9em;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--color_whiteGray);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.input-row .btn-add {
+    margin-top: 5px;
+}
+
+@media (min-width: 1024px) {
+    .input-row {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .input-row input, .input-row select {
+        flex: 1;
+        height: 42px;
+    }
+    .input-row .btn-add {
+        margin-top: 0;
+        flex: 0.6;
+        height: 42px;
+    }
+}
+
+/* スケジュール情報 */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    font-size: 0.95em;
+}
+
+@media (min-width: 1024px) {
+    .info-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.info-item {
+    background: var(--color_paleGray);
+    padding: 10px;
+    border-radius: 6px;
+}
+.info-label{
+    margin-right: 10px;
+}
+/* 下部操作ボタン */
+.file-controls {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px dashed var(--color_lightGray);
+}
+
+@media (min-width: 1024px) {
+    .file-controls { text-align: right; }
+}
+
+.btn-file, .btn-sort {
+    height: 40px;
+    cursor: pointer;
+    padding: 0 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn-file { background: var(--color_darkBlue); color: var(--color_white); border: none; }
+.bg-excel { background: var(--color_green); }
+.btn-sort { background: var(--color_darkBlue); color: var(--color_white); border: none; }
+footer{margin-top: 40px; padding: 20px; border-top: 1px solid var(--color_lightGray); font-size: 0.8em; color: var(--color_mediumGray);}

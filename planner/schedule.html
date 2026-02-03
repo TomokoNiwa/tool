@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TOMOKO NIWA">
+    <title>公開スケジュール管理</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="schedule">
+<div class="container">
+    <nav class="page-nav">
+        <a href="index.html" class="nav-item">🏠 TOP</a>
+        <a href="task.html" class="nav-item">⏱ 工数管理</a>
+        <a href="schedule.html" class="nav-item">📅 スケジュール</a>
+    </nav>
+    <h1>📅 公開スケジュール管理</h1>
+
+    <div class="setup-area" id="inputForm">
+        <input type="hidden" id="editingId" value="">
+        <div class="input-grid">
+            <div><label>タスク名</label><input type="text" id="taskName" style="width:100%;"></div>
+            <div>
+                <label>公開予定日時</label>
+                <div style="display: flex; gap: 5px;">
+                    <input type="date" id="pubDay" style="flex: 2;">
+                    <select id="pubHour" style="flex: 1;"></select>
+                    <select id="pubMin" style="flex: 1;"><option value="00">00</option><option value="30">30</option></select>
+                </div>
+            </div>
+            <div><label>公開方式</label>
+                <select id="pubType" style="width:100%;">
+                    <option value="timer">タイマー公開</option>
+                    <option value="manual">手動公開</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-grid-sub">
+            <div><label>クリエイター</label><input type="text" id="creatorName" style="width:100%;"></div>
+            <div><label>ディレクター</label><input type="text" id="directorName" style="width:100%;"></div>
+            <div><label>&nbsp;</label><button class="btn-main" id="submitBtn" onclick="addTask()">スケジュールを登録</button></div>
+        </div>
+    </div>
+
+    <button class="btn-sort" onclick="sortTasks()" style="background:var(--color_darkBlue); color:white; border:none; padding:10px; border-radius:4px; margin-bottom:15px; cursor:pointer;">⏳ 公開日が近い順に並び替え</button>
+    
+    <div id="taskList"></div>
+
+    <div class="file-controls">
+        <button class="btn-file" style="background:var(--color_green)" onclick="exportCSV()">Excel用CSV出力</button>
+        <button class="btn-file" onclick="exportJSON()">JSON保存</button>
+        <button class="btn-file" onclick="document.getElementById('importFile').click()">JSON読込</button>
+        <input type="file" id="importFile" style="display:none" onchange="importJSON(event)">
+    </div>
+</div>
+<script src="js/schedule.js" charset="UTF-8"></script>
+</body>
+</html>

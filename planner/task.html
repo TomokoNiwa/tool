@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TOMOKO NIWA">
+    <title>タスク・工数管理</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="task">
+<div class="container">
+    <nav class="page-nav">
+        <a href="index.html" class="nav-item">🏠 TOP</a>
+        <a href="task.html" class="nav-item">⏱ 工数管理</a>
+        <a href="schedule.html" class="nav-item">📅 スケジュール</a>
+    </nav>   
+    <h1>⏱ タスク別 工数管理</h1>
+
+    <div class="setup-area">
+        <label>新しいタスクを登録</label>
+        <input type="text" id="taskName" placeholder="タスク名を入力" style="width:100%; margin-bottom:10px;">
+        <button class="btn-main" onclick="createNewTask()">タスクを追加</button>
+    </div>
+
+    <div id="taskDisplayArea"></div>
+
+    <div class="file-controls">
+        <button class="btn-file" onclick="exportJSON()">JSON保存</button>
+        <button class="btn-file" onclick="document.getElementById('importFile').click()">JSON読込</button>
+        <input type="file" id="importFile" style="display:none" onchange="importJSON(event)">
+    </div>
+</div>
+<script src="js/task.js" charset="UTF-8"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="TOMOKO NIWA">
+    <title>記事制作ポータル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="batch-image">
+
+<header>
+    <nav class="page-nav">
+    <a href="index.html" class="nav-item">🏠 TOP</a>
+    <a href="batch-editor.html" class="nav-item">✍️ エディター</a>
+    <a href="batch-image.html" class="nav-item">📸 画像タグ生成</a>
+    </nav>
+    <h1>📸 画像タグ生成</h1>
+</header>
+
+<div class="tab-container">
+    <div class="tab active" onclick="switchTab('single')">通常（1枚ずつ）</div>
+    <div class="tab" onclick="switchTab('double')">2枚セット</div>
+</div>
+
+<div class="main-content">
+    <div class="input-side">
+        <div id="single-form" class="form-content active">
+            <table class="input-table">
+                <thead>
+                    <tr><th style="width:30px;">No</th><th>アイテムID</th><th>キャプション</th></tr>
+                </thead>
+                <tbody id="singleBody"></tbody>
+            </table>
+        </div>
+
+        <div id="double-form" class="form-content">
+            <table class="input-table">
+                <thead>
+                    <tr><th style="width:30px;">Set</th><th>画像1 ID</th><th>画像2 ID</th><th>共通キャプション</th></tr>
+                </thead>
+                <tbody id="doubleBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="result-side">
+        <div class="result-header">
+            <strong>生成されたHTMLソース</strong>
+            <span id="count">0 件</span>
+        </div>
+        <div id="outputTags" class="result-area"></div>
+        <button class="btn-copy" onclick="copyResult()">ソースをすべてコピー</button>
+    </div>
+</div>
+
+<script src="js/portal-tools.js" charset="UTF-8"></script>
+</body>
+</html>
