@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="TOMOKO NIWA"> 
+<meta name="generator" content="GitHub Pages (https://github.com/tomokoniwa/app/yorisoi)">
+
+<title>お助けアプリ YORISOI</title>
+<link rel="apple-touch-icon" href="icon-192.png?v=20251225">
+<link rel="icon" href="icon-192.png?v=20251225" type="image/png">
+<link rel="manifest" href="manifest.json?v=20251225">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="YORISOI">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+
+    <h1><i class="fa-solid fa-house"></i><span>ホーム</span></h1>
+
+    <div class="hamburger" id="js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="nav" id="js-nav">
+        <ul class="menu-list">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>ホーム</a></li>
+            <li><a href="category/phone.html" class="btn-tel"><i class="fa-solid fa-phone"></i>電話をかける</a></li>
+            <li><a href="category/schedule.html" class="btn-yellow"><i class="fa-solid fa-clock"></i>日付と予定</a></li>
+            <li><a href="category/checklist.html" class="btn-full"><i class="fa-solid fa-list-check"></i>持ち物チェック</a></li>   
+            <li><a href="category/address.html" class="btn-red"><i class="fa-solid fa-house-chimney-user"></i>住所と駅</a></li>
+            <li><a href="category/age.html" class="btn-blue"><i class="fa-solid fa-cake-candles"></i>年齢</a></li> 
+            <li><a href="category/feeling.html" class="btn-orange"><i class="fa-solid fa-heart"></i>今の気持ち</a></li>
+            <li><a href="category/play.html" class=" btn-pink"><i class="fa-solid fa-dog"></i>息抜き</a></li>   
+            <li><a href="admin.php"><i class="fa-solid fa-list-check"></i>管理画面</a></li>  
+        </ul>  
+    </nav>
+</header>
+
+<main class="container">
+    <section> 
+        <!--<h2><i class="fa-solid fa-house"></i><span>ホーム</span></h2>-->
+        <div id="date-display">
+            <p class="js-date-top"></p>
+            <p id="current-time"></p>
+            <div id="today-event" class="info-card"></div>
+        </div>
+        <div id="view-week" style="display: block;">
+            <h3 id="week-title"></h3>
+            <table id="week-table"></table>
+        </div>         
+    </section>
+    <section>  
+        <div class="button-container"> 
+            <button class="emotion-btn btn-tel" onclick="location.href='category/phone.html'"><i class="fa-solid fa-phone"></i><span>電話をかける</span></button>
+            <button class="emotion-btn btn-yellow" onclick="location.href='category/schedule.html'"><i class="fa-solid fa-clock"></i><span>日付と予定</span></button>
+            <button class="emotion-btn btn-full" onclick="location.href='category/checklist.html'"><i class="fa-solid fa-list-check"></i><span>持ち物チェック</span></button>
+            <button class="emotion-btn btn-red" onclick="location.href='category/address.html'"><i class="fa-solid fa-house-chimney-user"></i><span>住所と駅</span></button> 
+            <button class="emotion-btn btn-blue" onclick="location.href='category/age.html'"><i class="fa-solid fa-cake-candles"></i><span>年齢</span></button> 
+            <button class="emotion-btn btn-orange" onclick="location.href='category/feeling.html'"><i class="fa-solid fa-heart"></i><span>今の気持ち</span></button> 
+            <button class="emotion-btn btn-pink" onclick="location.href='category/play.html'"><i class="fa-solid fa-dog"></i><span>息抜き</span></button>
+        </div>
+    </section>
+</main>
+<!--
+<footer>
+    <div>
+        <address>&copy; <script language="javascript">document.write(new Date().getFullYear())</script> いるよ. All rights reserved.</address>
+    </div>
+</footer>
+-->
+<script src="js/schedule.js" charset="UTF-8"></script>
+<script src="js/common.js" charset="UTF-8"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="TOMOKO NIWA"> 
+<meta name="generator" content="GitHub Pages (https://github.com/tomokoniwa/app/yorisoi)">
+<title>お助けアプリ YORISOI | 持ち物チェック</title>
+
+<link rel="apple-touch-icon" href="../icon-192.png?v=20251225">
+<link rel="icon" href="../icon-192.png?v=20251225" type="image/png">
+<link rel="manifest" href="../manifest.json?v=20251225">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="YORISOI">
+
+<link rel="stylesheet" href="../css/style.css?v=1.0.1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+<header>
+    <h1><i class="fa-solid fa-list-check"></i><span>持ち物チェック</span></h1>
+    <button class="back-btn" onclick="location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i>もどる
+    </button>
+    <div class="hamburger" id="js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="nav" id="js-nav">
+        <ul class="menu-list">
+            <li><a href="../index.html"><i class="fa-solid fa-house"></i>ホーム</a></li>
+            <li><a href="phone.html" class="btn-tel"><i class="fa-solid fa-phone"></i>電話をかける</a></li>
+            <li><a href="schedule.html" class="btn-yellow"><i class="fa-solid fa-clock"></i>日付と予定</a></li>
+            <li><a href="checklist.html" class="btn-full"><i class="fa-solid fa-list-check"></i>持ち物チェック</a></li>
+            <li><a href="address.html" class="btn-red"><i class="fa-solid fa-house-chimney-user"></i>住所と駅</a></li>
+            <li><a href="age.html" class="btn-blue"><i class="fa-solid fa-cake-candles"></i>年齢</a></li> 
+            <li><a href="feeling.html" class="btn-orange"><i class="fa-solid fa-heart"></i>今の気持ち</a></li>
+            <li><a href="play.html" class=" btn-pink"><i class="fa-solid fa-dog"></i>息抜き</a></li>   
+            <li><a href="../admin.php"><i class="fa-solid fa-list-check"></i>管理画面</a></li>  
+        </ul>  
+    </nav>
+</header>
+
+<main class="container">
+    <section id="checklist-section">
+        <div id="message-area" class="message-box"></div>
+        <h2>必ず持っていくもの</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">連絡帳ポーチ<small class="big-num">(忘れないでね)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">パットや紙パンツ<small class="big-num">(あると安心)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>     
+        </ul>
+        <h2>お風呂の日に持っていく</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="false">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-rug"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">バスタオル<small class="big-num">(忘れるとお金がかかるよ)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="false">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">着替えの下着<small class="big-num">(入浴後、着る肌着)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>      
+        </ul>
+        <h2>「だんらんの家」に<br>置いてある服（下着や着替え）</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="false">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-vest"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">予備の洋服<small class="big-num">(置き着が足りない時だけ用意するよ)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>   
+        </ul>
+        <h2>身に着けるもの</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true"> 
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">めがね<small class="big-num">(必ず)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-head-side-mask"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">マスク<small class="big-num">(感染対策だね)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>  
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="false">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-person-cane"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">つえ<small class="big-num">(ドアにあるよ)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>  
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true"> 
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">カギ<small class="big-num">(首にあるかな)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <h2>朝、くすりを飲んでない時</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="false">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-pills"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">くすり<small class="big-num">(1錠だよ)</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+        </ul>   
+        <h2>持っていかない物</h2>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox" class="check-item" data-required="true">
+                    <div class="check-card">
+                        <div class="icon-circle icon-back">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <div class="check-info">
+                            <span class="item-name">お金や通帳<small class="big-num">大事な物は持っていかないでね</small></span>
+                            <span class="ok-btn-text">OK</span>
+                        </div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+
+        <div id="message-area-bottom" class="message-box"></div>
+        <div id="reset-area" style="display:none;">
+            <button onclick="resetCheck()" class="back-btn">
+                <i class="fa-solid fa-rotate-right"></i> もう一度チェックする
+            </button>
+        </div>
+        <div class="back-btn-container" style="margin-top: 20px;"> 
+            <button class="back-btn" onclick="location.href='../index.html'">
+                <i class="fa-solid fa-arrow-left"></i>もどる
+            </button>
+        </div>  
+    </section>
+</main>
+
+<script src="../js/common.js" charset="UTF-8"></script>
+</body>
+</html>
