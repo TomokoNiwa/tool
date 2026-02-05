@@ -63,77 +63,77 @@
         a.click();
     }
 
-// JSONを読み込み
-function importJSON(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const data = JSON.parse(e.target.result);
-            
-            if (Array.isArray(data)) {
-                taskList = data;
-                saveData();
-                render();
-                alert(`工数データを読み込みました。\n現在のタスク数: ${taskList.length}件`);
-            } else {
-                throw new Error("Invalid format");
-            }
-        } catch (err) {
-            alert("インポートに失敗しました。正しいJSONファイルを選択してください。");
-        }
+    // JSONを読み込み
+    function importJSON(event) {
+        const file = event.target.files[0];
+        if (!file) return;
         
-        event.target.value = "";
-    };
-    reader.readAsText(file);
-}
-
-function render() {
-        const area = document.getElementById('taskDisplayArea');
-        area.innerHTML = '';
-        taskList.forEach(task => {
-            const card = document.createElement('div');
-            card.className = 'task-card';
-            
-            const logHtml = task.logs.map(l => `
-                <div class="log-row">
-                    <span>${l.date} [${l.type}]</span>
-                    <span>${l.hours.toFixed(2)}h</span>
-                </div>`).join('');
-
-            card.innerHTML = `
-                <div class="task-header">
-                    <div class="task-title">${task.name}</div>
-                    <div class="btn-wrap">
-                        <button class="btn-manual" onclick="sendToSchedule('${encodeURIComponent(task.name)}')">予定登録</button>
-                        <button class="btn-delete" onclick="deleteTask(${task.id})">削除</button>
-                    </div>
-                </div>
-                <div class="task-summary">
-                    <div class="summary-item sum-work">作業: ${task.workSum.toFixed(2)}h</div>
-                    <div class="summary-item sum-mtg">MTG: ${task.mtgSum.toFixed(2)}h</div>
-                    <div class="summary-item sum-total">合計: ${(task.workSum + task.mtgSum).toFixed(2)}h</div>
-                </div>
-                <div class="log-list">${logHtml || '実績なし'}</div>
-                <div class="input-row">
-                    <input type="date" id="date-${task.id}">
-                    <select id="type-${task.id}">
-                        <option value="作業">作業</option>
-                        <option value="MTG">MTG</option>
-                    </select>
-                    <input type="number" id="hour-${task.id}" value="0.25" min="0.25" step="0.25">
-                    <button class="btn-add" onclick="addRecord(${task.id})">登録</button>
-                </div>`;
-            area.appendChild(card);
-
-            const dateInput = document.getElementById(`date-${task.id}`);
-            if (dateInput) {
-                dateInput.value = new Date().toISOString().split('T')[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const data = JSON.parse(e.target.result);
+                
+                if (Array.isArray(data)) {
+                    taskList = data;
+                    saveData();
+                    render();
+                    alert(`工数データを読み込みました。\n現在のタスク数: ${taskList.length}件`);
+                } else {
+                    throw new Error("Invalid format");
+                }
+            } catch (err) {
+                alert("インポートに失敗しました。正しいJSONファイルを選択してください。");
             }
-        });
+            
+            event.target.value = "";
+        };
+        reader.readAsText(file);
     }
+
+    function render() {
+            const area = document.getElementById('taskDisplayArea');
+            area.innerHTML = '';
+            taskList.forEach(task => {
+                const card = document.createElement('div');
+                card.className = 'task-card';
+                
+                const logHtml = task.logs.map(l => `
+                    <div class="log-row">
+                        <span>${l.date} [${l.type}]</span>
+                        <span>${l.hours.toFixed(2)}h</span>
+                    </div>`).join('');
+
+                card.innerHTML = `
+                    <div class="task-header">
+                        <div class="task-title">${task.name}</div>
+                        <div class="btn-wrap">
+                            <button class="btn-manual" onclick="sendToSchedule('${encodeURIComponent(task.name)}')">予定登録</button>
+                            <button class="btn-delete" onclick="deleteTask(${task.id})">削除</button>
+                        </div>
+                    </div>
+                    <div class="task-summary">
+                        <div class="summary-item sum-work">作業: ${task.workSum.toFixed(2)}h</div>
+                        <div class="summary-item sum-mtg">MTG: ${task.mtgSum.toFixed(2)}h</div>
+                        <div class="summary-item sum-total">合計: ${(task.workSum + task.mtgSum).toFixed(2)}h</div>
+                    </div>
+                    <div class="log-list">${logHtml || '実績なし'}</div>
+                    <div class="input-row">
+                        <input type="date" id="date-${task.id}">
+                        <select id="type-${task.id}">
+                            <option value="作業">作業</option>
+                            <option value="MTG">MTG</option>
+                        </select>
+                        <input type="number" id="hour-${task.id}" value="0.25" min="0.25" step="0.25">
+                        <button class="btn-add" onclick="addRecord(${task.id})">登録</button>
+                    </div>`;
+                area.appendChild(card);
+
+                const dateInput = document.getElementById(`date-${task.id}`);
+                if (dateInput) {
+                    dateInput.value = new Date().toISOString().split('T')[0];
+                }
+            });
+        }
 
     function sendToSchedule(taskName) {
         window.location.href = `schedule.html?name=${taskName}`;

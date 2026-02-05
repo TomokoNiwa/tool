@@ -1,6 +1,4 @@
 ﻿@charset "utf-8";
-
-/* --- 1. カラー変数 --- */
 :root {
     --color_main: #f4f7f9;
     --color_white: #fff;
@@ -20,8 +18,6 @@
     --color_whiteGray: #eee;
     --color_paleGray: #fafafa;
 }
-
-/* --- 2. 基本リセット --- */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -39,15 +35,12 @@ body {
     margin: auto;
     max-width: 1200px;
 }
-
-/* --- 3. TOPページ --- */
 .portal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-top: 30px;
 }
-
 .portal-card {
     background: var(--color_white);
     padding: 40px 20px;
@@ -60,22 +53,18 @@ body {
     display: block;
     color: inherit;
 }
-
 .portal-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-
 .portal-card h2 {
     margin-bottom: 15px;
     color: var(--color_blue);
     font-size: 1.5em;
 }
-
 .portal-card.card-task {
     border-top-color: var(--color_green);
 }
-
 .portal-card.card-task h2 {
     color: var(--color_green);
 }
@@ -85,13 +74,11 @@ body {
     color: var(--color_mediumGray);
     margin-bottom: 20px;
 }
-
 .icon {
     font-size: 3em;
     margin-bottom: 10px;
     display: block;
 }
-
 #index .portal-card .btn-main {
     width: auto;
     min-width: 120px;
@@ -103,24 +90,26 @@ body {
     border-radius: 4px;
     font-weight: bold;
 }
-
-#index .portal-card .btn-main { background-color: var(--color_blue); }
-#index .portal-card.card-task .btn-main { background-color: var(--color_green); }
+#index .portal-card .btn-main { 
+    background-color: var(--color_blue); 
+}
+#index .portal-card.card-task .btn-main {
+    background-color: var(--color_green); 
+}
 
 @media (max-width: 768px) {
     .portal-grid { grid-template-columns: 1fr; }
 }
 #index h1 { 
+    margin: 0;    
+    font-size: 2em;
     color: var(--color_darkGray);
-    font-size: 2em; 
-    margin: 0; 
 }
 h1 { 
-    color: var(--color_darkGray);
     font-size: 1.8em; 
     margin: 0 0 30px; 
+    color: var(--color_darkGray);    
 }
-/* --- 4. ナビゲーション --- */
 .page-nav {
     display: flex;
     gap: 10px;
@@ -129,12 +118,12 @@ h1 {
 
 .nav-item {
     text-decoration: none;
-    color: var(--color_mediumGray);
-    background: var(--color_whiteGray);
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: bold;
+    color: var(--color_mediumGray);
+    background: var(--color_whiteGray);
 }
 
 #task .nav-item[href="task.html"] {
@@ -146,8 +135,6 @@ h1 {
     background: var(--color_blue);
     color: var(--color_white);
 }
-
-/* --- 5. 入力エリア共通 --- */
 .setup-area {
     background: var(--color_white);
     padding: 25px;
@@ -155,7 +142,6 @@ h1 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
 }
-
 label {
     display: block;
     margin-bottom: 8px;
@@ -165,18 +151,18 @@ label {
 }
 input, select, .setup-area button, .btn-add {
     padding: 10px;
-    border: 1px solid var(--color_lightGray);
     border-radius: 6px;
-    font-size: 1rem;
     height: 46px; 
+    font-size: 1rem;    
+    border: 1px solid var(--color_lightGray);    
 }
 .input-row {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: var(--color_whiteGray);
     padding: 15px;
     border-radius: 8px;
+    background: var(--color_whiteGray);    
 }
 
 .btn-add {
@@ -184,11 +170,11 @@ input, select, .setup-area button, .btn-add {
     font-weight: bold;
     cursor: pointer;
     border: none;
-    color: var(--color_white);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 5px;
+    color: var(--color_white);    
     background: var(--color_blue); 
 }
 
@@ -214,7 +200,6 @@ input, select, .setup-area button, .btn-add {
         height: 46px;
     }
 }
-
 @media screen and (min-width: 1024px) {
     .input-grid {
         display: grid;
@@ -227,7 +212,6 @@ input, select, .setup-area button, .btn-add {
         gap: 15px;
     }
 }
-/* --- 6. タスクカード --- */
 .task-card {
     background: var(--color_white);
     padding: 20px;
@@ -236,14 +220,13 @@ input, select, .setup-area button, .btn-add {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border-left: 6px solid var(--color_lightGray);
 }
-
 .task-header {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 15px;
+    padding-bottom: 10px;    
     border-bottom: 1px solid var(--color_whiteGray);
-    padding-bottom: 10px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -253,40 +236,38 @@ input, select, .setup-area button, .btn-add {
         align-items: center;
     }
 }
-
 .task-title {
     font-weight: bold;
     font-size: 1.3em;
     color: var(--color_blue);
 }
-
 .btn-wrap {
     display: flex;
     gap: 8px;
 }
-
 .btn-wrap button {
     min-width: 85px;
     padding: 0 15px;
     height: 38px;
     border: none;
     cursor: pointer;
-    color: var(--color_white);
     border-radius: 4px;
     font-size: 0.85em;
+    color: var(--color_white);    
 }
 
-.btn-edit { background: var(--color_lightGray); color: var(--color_darkGray) !important; }
+.btn-edit {
+    background: var(--color_lightGray); 
+    color: var(--color_darkGray) !important; 
+}
 .btn-manual { background: var(--color_orange); }
 .btn-delete { background: var(--color_red); }
 
-/* 集計パーツ */
 .task-summary {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-
 .summary-item {
     flex: 1;
     padding: 8px;
@@ -295,7 +276,6 @@ input, select, .setup-area button, .btn-add {
     font-weight: bold;
     font-size: 0.85em;
 }
-
 .sum-work { background: var(--color_lightBlue); color: var(--color_blue); }
 .sum-mtg { background: var(--color_lightPink); color: var(--color_red); }
 .sum-total { background: var(--color_darkGray); color: var(--color_white); }
@@ -309,7 +289,6 @@ input, select, .setup-area button, .btn-add {
     background: var(--color_paleGray);
     font-size: 0.9em;
 }
-
 .input-row {
     display: flex;
     flex-direction: column;
@@ -318,7 +297,6 @@ input, select, .setup-area button, .btn-add {
     padding: 15px;
     border-radius: 8px;
 }
-
 .input-row .btn-add {
     margin-top: 5px;
 }
@@ -338,8 +316,6 @@ input, select, .setup-area button, .btn-add {
         height: 42px;
     }
 }
-
-/* スケジュール情報 */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -350,27 +326,23 @@ input, select, .setup-area button, .btn-add {
 @media (min-width: 1024px) {
     .info-grid { grid-template-columns: repeat(4, 1fr); }
 }
-
 .info-item {
-    background: var(--color_paleGray);
     padding: 10px;
     border-radius: 6px;
+    background: var(--color_paleGray);    
 }
 .info-label{
     margin-right: 10px;
 }
-/* 下部操作ボタン */
 .file-controls {
     margin-top: 30px;
     text-align: center;
     padding-top: 20px;
     border-top: 1px dashed var(--color_lightGray);
 }
-
 @media (min-width: 1024px) {
     .file-controls { text-align: right; }
 }
-
 .btn-file, .btn-sort {
     height: 40px;
     cursor: pointer;
@@ -379,7 +351,6 @@ input, select, .setup-area button, .btn-add {
     font-weight: bold;
     margin: 5px;
 }
-
 .btn-file { background: var(--color_darkBlue); color: var(--color_white); border: none; }
 .bg-excel { background: var(--color_green); }
 .btn-sort { background: var(--color_darkBlue); color: var(--color_white); border: none; }
